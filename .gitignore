@@ -1,0 +1,54 @@
+# Môi trường ảo Python
+.venv/
+venv/
+ENV/
+
+# Cấu hình IDE
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Thư mục dữ liệu huấn luyện (Quá nặng, không upload lên GitHub)
+ai-engine/data/
+
+# Các mô hình pre-trained gốc tải từ internet (ở thư mục gốc)
+yolo26n.pt
+yolov8n.pt
+yolov8n-obb.pt
+
+# Các file checkpoint trung gian khi train YOLO
+ai-engine/models/license_plate_det/weights/epoch*.pt
+ai-engine/models/license_plate_det/weights/last.pt
+# Chỉ giữ lại best.pt để deploy chạy được ngay (6.2 MB)
+
+# Các file ảnh minh họa sinh ra khi train YOLO
+ai-engine/models/license_plate_det/*.jpg
+
+# File log và checkpoint trung gian của OCR
+ai-engine/models/ocr_crnn/train.log
+ai-engine/models/ocr_crnn/last.pt
+# Chỉ giữ lại best.pt của OCR (34.9 MB) để deploy chạy được ngay
+
+# Thư mục tạm và đầu ra của AI Engine (Chỉ giữ lại thư mục rỗng)
+ai-engine/temp/*
+!ai-engine/temp/.gitkeep
+ai-engine/output/*
+!ai-engine/output/.gitkeep
+
+# Python cache & compiled files
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+.ipynb_checkpoints/
+
+# File log chung
+*.log
+
+# File rác hệ điều hành
+.DS_Store
+Thumbs.db
