@@ -29,9 +29,7 @@ Hệ thống hoạt động theo mô hình Pipeline khép kín:
 │   │   ├── inference.py     # Pipeline nhận diện kết hợp YOLOv8 + CRNN
 │   │   ├── ocr_engine.py    # Bộ giải mã nhận diện chữ (CRNN OCR Engine)
 │   │   ├── train.py         # Huấn luyện YOLOv8 phát hiện biển số
-│   │   ├── train_ocr.py     # Huấn luyện CRNN nhận diện ký tự biển số
-│   │   ├── eval_pipeline.py # Đánh giá hệ thống (tính DR, Acc, CER)
-│   │   └── visualize_ocr.py # Vẽ đồ thị kết quả train OCR
+│   │   └── train_ocr.py     # Huấn luyện CRNN nhận diện ký tự biển số
 │   ├── temp/                # Thư mục chứa các tệp tin tạm thời khi chạy gỡ lỗi
 │   └── requirements.txt     # Các thư viện Python cần thiết
 │
@@ -108,11 +106,10 @@ Tại thư mục gốc của dự án, bạn chỉ cần chạy hai file `.bat` 
 
 ---
 
-## 💻 Hướng dẫn Kiểm thử & Đánh giá (CLI)
+## 💻 Hướng dẫn Nhận diện bằng dòng lệnh (CLI)
 
-Dự án hỗ trợ các câu lệnh CLI mạnh mẽ trong thư mục `ai-engine` để kiểm thử và phân tích mô hình:
+Dự án hỗ trợ câu lệnh CLI trong thư mục `ai-engine` để chạy thử nhận diện ảnh/video đơn lẻ:
 
-### 1. Nhận diện đơn lẻ một ảnh hoặc video
 ```bash
 # Chạy nhận diện một bức ảnh xe
 python src/inference.py path/to/car.jpg --output temp/result.jpg
@@ -120,25 +117,6 @@ python src/inference.py path/to/car.jpg --output temp/result.jpg
 # Chạy nhận diện một video xe chạy
 python src/inference.py path/to/traffic.mp4 --output temp/result.mp4
 ```
-
-### 2. Chạy kiểm tra nhanh liên kết hệ thống (Test Pipeline)
-```bash
-python src/test_pipeline.py
-```
-
-### 3. Đánh giá tự động độ chính xác (Accuracy) và tỉ lệ lỗi chữ (CER)
-Nếu bạn có một thư mục chứa các bức ảnh xe chưa cắt với tên file chính là biển số xe (ví dụ: `30G63611.jpg`, `51F12345.png`...), chạy lệnh sau để tự động đánh giá hiệu năng toàn hệ thống:
-```bash
-python src/eval_pipeline.py path/to/your_test_directory
-```
-*Lệnh sẽ trả về: Tỉ lệ phát hiện biển (Detection Rate), Độ chính xác khớp 100% biển số (Accuracy) và Tỉ lệ sai số ký tự (Character Error Rate - CER).*
-
-### 4. Trực quan hóa kết quả huấn luyện OCR
-Để vẽ biểu đồ quá trình học (Loss & Accuracy) từ file `train.log` sau khi train OCR:
-```bash
-python src/visualize_ocr.py
-```
-*Ảnh biểu đồ kết quả sẽ được lưu tại `models/ocr_crnn/train_results.png`.*
 
 ---
 
