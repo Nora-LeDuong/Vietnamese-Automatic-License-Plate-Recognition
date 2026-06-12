@@ -1,4 +1,4 @@
-# Vietnamese Automatic License Plate Recognition (ALPR)
+# Vietnamese Automatic License Plate Recognition (VALPR)
 
 Hệ thống nhận diện biển số xe Việt Nam tự động hai giai đoạn (Two-stage ALPR) sử dụng **YOLOv8** để phát hiện vị trí biển số và mạng nơ-ron **CRNN (CNN + RNN + CTC Loss)** tự huấn luyện để nhận diện ký tự biển số. Dự án tích hợp giao diện Web thân thiện viết bằng **Laravel** và Backend AI viết bằng **FastAPI (Python)**.
 
@@ -123,5 +123,5 @@ python src/inference.py path/to/traffic.mp4 --output temp/result.mp4
 ## 📊 Thông số Kết quả Huấn luyện Hiện tại
 * **YOLOv8n (Phát hiện biển số)**: Đạt tỉ lệ phát hiện (DR) **~98%** trên tập ảnh thử nghiệm.
 * **CRNN OCR (Đọc chữ biển số)**:
-  * **Độ chính xác (Acc)**: **91.62%** (đọc đúng hoàn hảo toàn bộ biển số).
+  * **Độ chính xác (Acc)**: **90.90%** (đọc đúng hoàn hảo toàn bộ biển số).
   * **Tỉ lệ lỗi ký tự (CER)**: **3.64%** (sai lệch trung bình cực thấp).
