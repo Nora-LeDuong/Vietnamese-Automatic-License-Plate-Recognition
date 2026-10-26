@@ -1,0 +1,10 @@
+# dataset.yaml - Cấu hình dữ liệu cho YOLOv8
+# Sử dụng với ultralytics: yolo detect train data=dataset.yaml
+
+path: c:/Users/admin/PycharmProjects/Automatic License Plate Recognition/ai-engine/data/yolo_dataset   # Đường dẫn gốc tuyệt đối tới thư mục dataset
+train: images/train          # Thư mục ảnh train (tương đối từ path)
+val: images/val              # Thư mục ảnh val (tương đối từ path)
+
+# Classes
+names:
+  0: licence
